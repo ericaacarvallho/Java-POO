@@ -1,32 +1,44 @@
 package funcCliente;
 
+import java.time.LocalDate;
+import java.time.Period;
+
 public class Funcionario extends pessoa {
 	int matricula;
 	double salario;
 	String dataDeAdmissao;
+	int idade;
+	String cargo;
 	
 	public Funcionario(String nome, String dataNascimento, String endereço, String telsContato, String cargo,
 			int matricula, double salario, String dataDeAdmissao) {
-		super(nome, dataNascimento, endereço, telsContato, cargo);
+		super(nome, dataNascimento, endereço, telsContato);
 		this.matricula = matricula;
 		this.salario = salario;
 		this.dataDeAdmissao = dataDeAdmissao;
+		this.cargo = cargo;
 	}
 	
-	public void cadastrar(String nome, String dataNascimento, String endereço, String telsContato, String cargo,
-			int matricula, double salario, String dataDeAdmissao) {
+	public void cadastrar(Funcionario func) {
+		System.out.println("Funcionario cadastrado com sucesso");
+		System.out.println("Nome: " + func.nome);
+		System.out.println("Data De Nascimento: " + func.dataNascimento);
+		System.out.println("Matricula: " + func.matricula);
+		System.out.println("Cargo: " + func.cargo);
+		
+		
 		
 	}
 	
-	public void obterIdade(String DataDeNascimento) {
-		
-	}
-	
-	public void reajustarSalario(double salario) {
+	public double reajustarSalario(double salario, int perc) {
+		System.out.println(salario + "-" + perc);
+		this.salario += salario * perc / 100;
+		return this.salario;
 		
 	}
 	
 	public void promoverCargo(String cargo) {
+		this.cargo = cargo;
 		
 	}
 

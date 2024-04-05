@@ -1,18 +1,21 @@
 package funcCliente;
 
+import java.time.LocalDate;
+import java.time.Period;
+
 public class pessoa {
 	String nome;
 	String dataNascimento;
 	String endereço;
 	String telsContato;
-	String cargo;	
+	int idade;
 		
-	public pessoa(String nome, String dataNascimento, String endereço, String telsContato, String cargo) {
+	public pessoa(String nome, String dataNascimento, String endereço, String telsContato) {
 		this.nome = nome;
 		this.dataNascimento = dataNascimento;
 		this.endereço = endereço;
 		this.telsContato = telsContato;
-		this.cargo = cargo;
+		
 	}
 
 	public void cadastrar(String nome, int matricula, String dataNascimento, String endereço, String telsContato, String cargo,
@@ -20,18 +23,14 @@ public class pessoa {
 			
 	}	
 	
-	public void obteridade(String dataNascimento) {
+	public int obteridade(String dataNascimento) {
+		LocalDate dtnasc = LocalDate.parse(dataNascimento);
+		LocalDate dtAtual = LocalDate.now();
+		this.idade = (Period.between(dtnasc, dtAtual).getYears());
+		return this.idade;
 		
 	}
 	
-	public void reajustarSalario(boolean salario) {
-		
-	}
-	
-	public void promoverCargo(String cargo) {
-		
-	}
-
 	public String getNome() {
 		return nome;
 	}
@@ -64,14 +63,5 @@ public class pessoa {
 		this.telsContato = telsContato;
 	}
 
-	public String getCargo() {
-		return cargo;
-	}
-
-	public void setCargo(String cargo) {
-		this.cargo = cargo;
-	}
 	
-	
-
 }

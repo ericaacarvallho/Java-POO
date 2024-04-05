@@ -8,9 +8,9 @@ public class clienteEspecial extends pessoa {
 	String profissao;
 	int idade;
 	
-	public clienteEspecial(String nome, String dataNascimento, String endereço, String telsContato, String cargo,
+	public clienteEspecial(String nome, String dataNascimento, String endereço, String telsContato,
 			String codigo, String profissao) {
-		super(nome, dataNascimento, endereço, telsContato, cargo);
+		super(nome, dataNascimento, endereço, telsContato);
 		this.codigo = codigo;
 		this.profissao = profissao;
 		
@@ -20,15 +20,9 @@ public class clienteEspecial extends pessoa {
 		System.out.println("Cliente cadastrado com sucesso");
 		System.out.println("Nome: " + especial.nome);
 		System.out.println("Data De Nascimento: " + especial.dataNascimento);
-		System.out.println("Idade: " + obterIdade(especial.dataNascimento));
+		System.out.println("Idade: " + super.obteridade	(especial.dataNascimento));
 	}
 	
-	public int obterIdade(String dataDeNascimento) {
-		LocalDate dtnasc = LocalDate.parse(dataDeNascimento);
-		LocalDate dtAtual = LocalDate.now();
-		this.idade = (Period.between(dtnasc, dtAtual).getYears());
-		return this.idade;
-	}
 
 	public String getCodigo() {
 		return this.codigo;
