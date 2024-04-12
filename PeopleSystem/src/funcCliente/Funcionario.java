@@ -3,40 +3,45 @@ package funcCliente;
 import java.time.LocalDate;
 import java.time.Period;
 
+import composicoes.*;
+
 public class Funcionario extends pessoa {
-	int matricula;
-	double salario;
-	String dataDeAdmissao;
-	int idade;
-	String cargo;
+	private int matricula;
+	private cargo cargo;
+	private double salario;
+	private LocalDate dataDeAdmissao;
 	
-	public Funcionario(String nome, String dataNascimento, String endereço, String telsContato, String cargo,
-			int matricula, double salario, String dataDeAdmissao) {
+	
+	public Funcionario() {
+		
+	}
+
+	public Funcionario(String nome, LocalDate dataNascimento, endereco endereço, Telefone telsContato, cargo cargo,
+			int matricula, double salario, LocalDate dataDeAdmissao) {
 		super(nome, dataNascimento, endereço, telsContato);
 		this.matricula = matricula;
+		this.cargo = cargo;
 		this.salario = salario;
 		this.dataDeAdmissao = dataDeAdmissao;
-		this.cargo = cargo;
+		
 	}
 	
 	public void cadastrar(Funcionario func) {
 		System.out.println("Funcionario cadastrado com sucesso");
-		System.out.println("Nome: " + func.nome);
-		System.out.println("Data De Nascimento: " + func.dataNascimento);
 		System.out.println("Matricula: " + func.matricula);
 		System.out.println("Cargo: " + func.cargo);
 				
 	}
 	
-	public double reajustarSalario(double salario, int perc) {
-		System.out.println(salario + "-" + perc);
-		this.salario += salario * perc / 100;
-		return this.salario;
+	public void reajustarSalario(double  percentual) {
+		System.out.println(salario + "-" + percentual);
+		this.salario = this.salario * (1 + (percentual / 100));
+		
 		
 	}
 	
-	public void promoverCargo(String cargo) {
-		this.cargo = cargo;
+	public void promoverCargo(cargo novoCargo) {
+		this.cargo = novoCargo;
 		
 	}
 
@@ -56,14 +61,18 @@ public class Funcionario extends pessoa {
 		this.salario = salario;
 	}
 
-	public String getDataDeAdmissao() {
+	public LocalDate getDataDeAdmissao() {
 		return dataDeAdmissao;
 	}
 
-	public void setDataDeAdmissao(String dataDeAdmissao) {
+	public void setDataDeAdmissao(LocalDate dataDeAdmissao) {
 		this.dataDeAdmissao = dataDeAdmissao;
 	}
-	
+
+	public cargo getCargo() {
+		return cargo;
+	}
+
 		
 }
 
