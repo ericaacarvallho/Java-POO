@@ -1,16 +1,11 @@
 package composicoes;
 
-public class cargo {
-	public enum Cargo {
-		ESTAGIARIO,
-		TRAINEE,
-		JUNIOR,
-		PLENO,
-		SENIOR,
-		ESPEC,
-		
-	}
+public enum cargo {
+	ESTAGIARIO,
+	TRAINEE,
+	JUNIOR,
+	PLENO,
+	SENIOR,
+	ESPEC,
 	
-	
-
 }
